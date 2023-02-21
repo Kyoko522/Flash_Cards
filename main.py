@@ -1,4 +1,3 @@
-import math
 import time
 import random
 class Flashcard:
@@ -33,8 +32,10 @@ def main():
 
 1.New Flash Cards
 2. Load Old Flash Cards \n """)
+    meanu()
 
 
+def meanu():
     option = input("""What do you want to do next:
 1. Add Cards
 2. Start Quiz
@@ -50,7 +51,7 @@ def main():
         elif option == "3":
             pass
         elif option == "4":
-            pass
+            save_deck()
         else:
             option = input("Invalid input please try again: ")
 
@@ -62,6 +63,8 @@ def load_deck():
 name =""
 num = 0
 deck = []
+wrong = []
+right = []
 def new_deck_name():
     global name
     name = input("Name of deck: \t\t\t\t")
@@ -92,8 +95,8 @@ def add_card_to_deck():
 
 
 def quiz():
-    wrong = []
-    right = []
+    global wrong
+    global right
     print ("Test how well you know your stuff\n")
     print ("""Quick notes:
 -> If you would like to leave the quiz enter \"#\" after the answer is revealed
@@ -120,6 +123,7 @@ The test will begin shortly... """)
                     wrong.append(deck[rand_index])
                     deck.remove(deck[rand_index])
                 elif sort_result().lower() == "#":
+                    meanu()
                     break
             elif len(wrong) > 1:
                 rand_index = random.randint(0, len(wrong)-1)
@@ -131,6 +135,7 @@ The test will begin shortly... """)
                 elif sort_result().lower() == "n":
                     pass
                 elif sort_result().lower() == "#":
+                    meanu()
                     break
             elif len(right) > 1:
                 rand_index = random.randint(0, len(right)-1)
@@ -142,6 +147,7 @@ The test will begin shortly... """)
                     wrong.append(right[rand_index])
                     deck.remove(right[rand_index])
                 elif sort_result().lower() == "#":
+                    meanu()
                     break
         if 40 < rand <= 85:
             if len(wrong) >= 1:
@@ -154,6 +160,7 @@ The test will begin shortly... """)
                 elif sort_result().lower() == "n":
                     pass
                 elif sort_result().lower() == "#":
+                    meanu()
                     break
             elif len(deck) >= 1:
                 rand_index = random.randint(0,len(deck)-1)
@@ -166,6 +173,7 @@ The test will begin shortly... """)
                     wrong.append(deck[rand_index])
                     deck.remove(deck[rand_index])
                 elif sort_result().lower() == "#":
+                    meanu()
                     break
             elif len(right) >=  1:
                 rand_index = random.randint(0,len(right)-1)
@@ -177,6 +185,7 @@ The test will begin shortly... """)
                     wrong.append(right[rand_index])
                     deck.remove(right[rand_index])
                 elif sort_result().lower() == "#":
+                    meanu()
                     break
         else:
             if len(right) >= 1:
@@ -189,6 +198,7 @@ The test will begin shortly... """)
                     wrong.append(right[rand_index])
                     deck.remove(right[rand_index])
                 elif sort_result().lower() == "#":
+                    meanu()
                     break
             elif len(wrong) >= 1:
                 confirm(wrong[rand_index].question)
@@ -199,6 +209,7 @@ The test will begin shortly... """)
                 elif sort_result().lower() == "n":
                     pass
                 elif sort_result().lower() == "#":
+                    meanu()
                     break
             elif len(deck) >= 1:
                 rand_index = random.randint(0,len(deck)-1)
@@ -211,8 +222,55 @@ The test will begin shortly... """)
                     wrong.append(deck[rand_index])
                     deck.remove(deck[rand_index])
                 elif sort_result().lower() == "#":
+                    meanu()
                     break
 
+def remove_card():
+    count = 0
+    remove_question = input("Type in the question that you want to remove: ")
+    remove_answer = input("Type in the answer that you want to remove: ")
+    for d in range(len(deck)):
+        if deck[d].question == remove_question and deck[d].answer == remove_answer:
+            deck.remove[d]
+            count = 1
+    for r in range(len(right)):
+        if right[r].question == remove_question and right[r].answer == remove_answer:
+            right.remove(r)
+            count = 1
+
+    for w in range(len(wrong)):
+        if wrong[w].question == remove_question and right[w].answer == remove_answer:
+            right.remove(r)
+            count = 1
+
+    if count == 0:
+        print("The Card with that question and answer doesn't not exist")
+        try_again = input("\nWould you like to try again? (y/n)")
+        if try_again.lower() == "y":
+            remove_card()
+        else:
+            meanu()
+
+def save_deck():
+    with open(name+".txt",'w') as file:
+        file.write("Start Questions in deck:_>!%^@\n")
+        for i in deck:
+            file.write(str(i) +'\n')
+        file.write("End Questions in deck:_>!%^@")
+
+        file.write("Start Questions in right:_>!%^@\n")
+        for j in right:
+            file.write(str(j) + '\n')
+        file.write("End Questions in right:_>!%^@")
+
+        file.write("Start Questions in wrong:_>!%^@\n")
+        for n in wrong:
+            file.write(str(n) + '\n')
+        file.write("End Questions in wrong:_>!%^@")
+
+    print("The deck has be successfully saved")
+    time.sleep(3)
+    meanu()
 
 
 def to_small():
