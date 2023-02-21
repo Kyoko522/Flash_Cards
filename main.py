@@ -15,8 +15,9 @@ class Flashcard:
 def main():
     userinput = input("""Flash Cards, the best way to study
 
-1.New Flash Cards
-2.Load Flash Cards \n""")
+1. New Flash Cards
+2. Load Flash Cards
+3. Remove Flash Cards\n""")
 
     while userinput != "1" or userinput != "2":
         if userinput == "1" or userinput.lower()=="new" or userinput.lower() == "New Flash Cards":
@@ -26,6 +27,8 @@ def main():
         elif userinput == "2" or userinput.lower()=="load" or userinput.lower() =="Load Flash Cards" :
             load_deck()
             break
+        elif userinput == "3" or userinput.lower()=="remove" or userinput.lower()=="Remove Flash Cards":
+            pass
         else:
             print("That is a invalid input")
             userinput = input("""Flash Cards, the best way to study
