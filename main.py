@@ -98,6 +98,7 @@ def load_deck():
 
 def remove_deck():
     name = input("What is the name of the Deck you want to remove: ")
+    os.remove(name+".txt")
 
 name =""
 num = 0
