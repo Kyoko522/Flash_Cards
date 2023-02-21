@@ -57,11 +57,11 @@ def meanu():
         print("Invalid input please try again: (y/n)")
         meanu()
 
-# TODO:
+
 def load_deck():
     pass
 
-#TODO
+
 def remove_deck():
     pass
 
