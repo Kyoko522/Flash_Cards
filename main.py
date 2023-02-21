@@ -109,6 +109,7 @@ def add_card_to_deck():
         global deck
         deck.append(card)
         print("Successfully added to deck")
+    meanu()
 
 
 def quiz():
