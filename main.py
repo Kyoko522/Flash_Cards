@@ -41,20 +41,18 @@ def meanu():
 2. Start Quiz
 3. Remove a Card
 4. Save Deck
-        """)
-    while int(option) > 1 and int(option) < 3:
-        if option == "1":
-            add_card_to_deck()
-            break
-        elif option == "2":
-            quiz()
-        elif option == "3":
-            remove_card()
-        elif option == "4":
-            save_deck()
-        else:
-            option = input("Invalid input please try again: ")
-
+""")
+    if option == "1":
+        add_card_to_deck()
+    elif option == "2":
+        quiz()
+    elif option == "3":
+        remove_card()
+    elif option == "4":
+        save_deck()
+    else:
+        print("Invalid input please try again: (y/n)")
+        meanu()
 
 
 def load_deck():
@@ -252,6 +250,7 @@ def remove_card():
             meanu()
 
 def save_deck():
+    print ("it does run this method")
     with open(name+".txt",'w') as file:
         file.write("Start Questions in deck:_>!%^@\n")
         for i in deck:
