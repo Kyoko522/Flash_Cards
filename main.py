@@ -49,7 +49,7 @@ def meanu():
         elif option == "2":
             quiz()
         elif option == "3":
-            pass
+            remove_card()
         elif option == "4":
             save_deck()
         else:
