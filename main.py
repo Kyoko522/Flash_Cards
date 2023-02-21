@@ -1,5 +1,7 @@
 import time
 import random
+import os.path
+from os import path
 class Flashcard:
     def __init__(self,question, answer):
         self.question = question
@@ -44,6 +46,7 @@ def meanu():
 2. Start Quiz
 3. Remove a Card
 4. Save Deck
+5. Back
 """)
     if option == "1":
         add_card_to_deck()
@@ -53,17 +56,26 @@ def meanu():
         remove_card()
     elif option == "4":
         save_deck()
+    elif option == "5":
+        main()
     else:
-        print("Invalid input please try again: (y/n)")
+        print("Invalid input please try again: ")
         meanu()
 
 
 def load_deck():
-    pass
+    name = input("What is the name of the deck")
+    if path.exist(name + ".txt"):
+        with open(name + ".txt", 'r') as file:
+            for line in file:
+                if line == "Start Questions in deck:_>!%^@":
+                    deck.append(line)
+
+
 
 
 def remove_deck():
-    pass
+    name = input("What is the name of the Deck you want to remove: ")
 
 name =""
 num = 0
