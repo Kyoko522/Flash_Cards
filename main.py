@@ -28,7 +28,7 @@ def main():
             load_deck()
             break
         elif userinput == "3" or userinput.lower()=="remove" or userinput.lower()=="Remove Flash Cards":
-            pass
+            remove_deck()
         else:
             print("That is a invalid input")
             userinput = input("""Flash Cards, the best way to study
@@ -57,8 +57,12 @@ def meanu():
         print("Invalid input please try again: (y/n)")
         meanu()
 
-
+# TODO:
 def load_deck():
+    pass
+
+#TODO
+def remove_deck():
     pass
 
 name =""
@@ -91,8 +95,6 @@ def add_card_to_deck():
         global deck
         deck.append(card)
         print("Successfully added to deck")
-
-
 
 
 def quiz():
