@@ -64,12 +64,34 @@ def meanu():
 
 
 def load_deck():
-    name = input("What is the name of the deck")
-    if path.exist(name + ".txt"):
+    global deck
+    global wrong
+    global right
+    flag = 0
+    name = input("What is the name of the deck: ")
+    path = "'./" + name +'.txt'
+    checkfile = os.path.exists(path)
+    if checkfile == True:
         with open(name + ".txt", 'r') as file:
             for line in file:
+                print[line]
                 if line == "Start Questions in deck:_>!%^@":
+                    flag = 1
+                elif line == "Start Questions in right:_>!%^@":
+                    flag = 2
+                elif line == "Start Questions in wrong:_>!%^@":
+                    flag = 3
+                elif line == "End Questions in deck:_>!%^@" or line == "End Questions in right:_>!%^@" or line == "End Questions in wrong:_>!%^@":
+                    flag = 0
+                if flag == 1:
                     deck.append(line)
+                elif flag == 2:
+                    right.append(line)
+                elif flag == 3:
+                    wrong.append(line)
+    else:
+        print("There is no deck called that please first make a deck called that name")
+        main()
 
 
 
@@ -126,8 +148,7 @@ The test will begin shortly... """)
 
     time.sleep(6)
     while True:
-        print ("\n")
-
+        # print ("------------------------------------------------------")
         rand = random.randint(1,100)
         if rand <= 40:
             if len(deck) > 1:
@@ -275,17 +296,17 @@ def save_deck():
         file.write("Start Questions in deck:_>!%^@\n")
         for i in deck:
             file.write(str(i) +'\n')
-        file.write("End Questions in deck:_>!%^@")
+        file.write("End Questions in deck:_>!%^@\n")
 
         file.write("Start Questions in right:_>!%^@\n")
         for j in right:
             file.write(str(j) + '\n')
-        file.write("End Questions in right:_>!%^@")
+        file.write("End Questions in right:_>!%^@\n")
 
         file.write("Start Questions in wrong:_>!%^@\n")
         for n in wrong:
             file.write(str(n) + '\n')
-        file.write("End Questions in wrong:_>!%^@")
+        file.write("End Questions in wrong:_>!%^@\n")
 
     print("The deck has be successfully saved")
     time.sleep(3)
