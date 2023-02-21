@@ -103,20 +103,8 @@ def quiz():
 
 The test will begin shortly... """)
 
-    # time.sleep(6)
+    time.sleep(6)
     while True:
-        # print ("-------------------------------------------------")
-        # for i in range(len(deck)):
-        #     print(deck[i].question + " -> " + deck[i].answer)
-        #
-        # for i in range(len(right)):
-        #     print(right[i].question + " -> " + right[i].answer)
-        #
-        # for i in range(len(wrong)):
-        #     print(wrong[i].question + " -> " + wrong[i].answer)
-        #
-        # print("-------------------------------------------------")
-
         print ("\n")
 
         rand = random.randint(1,100)
@@ -124,7 +112,7 @@ The test will begin shortly... """)
             if len(deck) > 1:
                 rand_index = random.randint(0, len(deck)-1)
                 confirm(deck[rand_index].question)
-                print(deck[rand_index].answer)
+                print("Answer -> \t" +deck[rand_index].answer)
                 if sort_result().lower() == "y":
                     right.append(deck[rand_index])
                     deck.remove(deck[rand_index])
@@ -136,44 +124,41 @@ The test will begin shortly... """)
             elif len(wrong) > 1:
                 rand_index = random.randint(0, len(wrong)-1)
                 confirm(wrong[rand_index].question)
-                print(wrong[rand_index].answer)
+                print("Answer -> \t" + wrong[rand_index].answer)
                 if sort_result().lower() == "y":
-                    right.append(deck[rand_index])
-                    deck.remove(deck[rand_index])
+                    right.append(wrong[rand_index])
+                    deck.remove(wrong[rand_index])
                 elif sort_result().lower() == "n":
-                    wrong.append(deck[rand_index])
-                    deck.remove(deck[rand_index])
+                    pass
                 elif sort_result().lower() == "#":
                     break
             elif len(right) > 1:
                 rand_index = random.randint(0, len(right)-1)
                 confirm(right[rand_index].question)
-                print(right[rand_index].answer)
+                print("Answer -> \t" +right[rand_index].answer)
                 if sort_result().lower() == "y":
-                    right.append(deck[rand_index])
-                    deck.remove(deck[rand_index])
+                    pass
                 elif sort_result().lower() == "n":
-                    wrong.append(deck[rand_index])
-                    deck.remove(deck[rand_index])
+                    wrong.append(right[rand_index])
+                    deck.remove(right[rand_index])
                 elif sort_result().lower() == "#":
                     break
         if 40 < rand <= 85:
             if len(wrong) >= 1:
                 rand_index = random.randint(0,len(wrong)-1)
                 confirm(wrong[rand_index].question)
-                print(wrong[rand_index].answer)
+                print("Answer -> \t" +wrong[rand_index].answer)
                 if sort_result().lower() == "y":
-                    right.append(deck[rand_index])
-                    deck.remove(deck[rand_index])
+                    right.append(wrong[rand_index])
+                    deck.remove(wrong[rand_index])
                 elif sort_result().lower() == "n":
-                    wrong.append(deck[rand_index])
-                    deck.remove(deck[rand_index])
+                    pass
                 elif sort_result().lower() == "#":
                     break
             elif len(deck) >= 1:
                 rand_index = random.randint(0,len(deck)-1)
                 confirm(deck[rand_index].question)
-                print(deck[rand_index].answer)
+                print("Answer -> \t" +deck[rand_index].answer)
                 if sort_result().lower() == "y":
                     right.append(deck[rand_index])
                     deck.remove(deck[rand_index])
@@ -185,44 +170,40 @@ The test will begin shortly... """)
             elif len(right) >=  1:
                 rand_index = random.randint(0,len(right)-1)
                 confirm(right[rand_index].question)
-                print(right[rand_index].answer)
+                print("Answer -> \t" +right[rand_index].answer)
                 if sort_result().lower() == "y":
-                    right.append(deck[rand_index])
-                    deck.remove(deck[rand_index])
+                    pass
                 elif sort_result().lower() == "n":
-                    wrong.append(deck[rand_index])
-                    deck.remove(deck[rand_index])
+                    wrong.append(right[rand_index])
+                    deck.remove(right[rand_index])
                 elif sort_result().lower() == "#":
                     break
         else:
             if len(right) >= 1:
                 rand_index = random.randint(0,len(right)-1)
                 confirm(right[rand_index].question)
-                print(right[rand_index].answer)
+                print("Answer -> \t" +right[rand_index].answer)
                 if sort_result().lower() == "y":
-                    right.append(deck[rand_index])
-                    deck.remove(deck[rand_index])
+                    pass
                 elif sort_result().lower() == "n":
-                    wrong.append(deck[rand_index])
-                    deck.remove(deck[rand_index])
+                    wrong.append(right[rand_index])
+                    deck.remove(right[rand_index])
                 elif sort_result().lower() == "#":
                     break
             elif len(wrong) >= 1:
-                rand_index = random.randint(0,len(wrong)-1)
                 confirm(wrong[rand_index].question)
-                print(wrong[rand_index].answer)
+                print("Answer -> \t" +wrong[rand_index].answer)
                 if sort_result().lower() == "y":
-                    right.append(deck[rand_index])
-                    deck.remove(deck[rand_index])
+                    right.append(wrong[rand_index])
+                    deck.remove(wrong[rand_index])
                 elif sort_result().lower() == "n":
-                    wrong.append(deck[rand_index])
-                    deck.remove(deck[rand_index])
+                    pass
                 elif sort_result().lower() == "#":
                     break
             elif len(deck) >= 1:
                 rand_index = random.randint(0,len(deck)-1)
                 confirm(deck[rand_index].question)
-                print(deck[rand_index].answer)
+                print("Answer -> \t" +deck[rand_index].answer)
                 if sort_result().lower() == "y":
                     right.append(deck[rand_index])
                     deck.remove(deck[rand_index])
@@ -231,13 +212,6 @@ The test will begin shortly... """)
                     deck.remove(deck[rand_index])
                 elif sort_result().lower() == "#":
                     break
-
-        # print("-------------------------------------------------")
-        #
-        # print("random index is " + str(rand_index))
-        # print("random number is " + str(rand))
-        #
-        # print("-------------------------------------------------")
 
 
 
@@ -246,7 +220,7 @@ def to_small():
     add_card_to_deck()
 
 def confirm(banana):
-    i = input(banana)
+    i = input("Question -> \t" + banana)
 
 def sort_result():
     were_u_right = input("Did you get the question right: (Y/N/#)")
