@@ -32,7 +32,7 @@ def main():
         elif userinput == "3" or userinput.lower()=="remove" or userinput.lower()=="Remove Flash Cards":
             remove_deck()
         else:
-            print("That is a invalid input")
+            print("That is a invalid input\n")
             userinput = input("""Flash Cards, the best way to study
 
 1.New Flash Cards
@@ -103,6 +103,8 @@ def add_card_to_deck():
     while True :
         question = input("Question -> \t\t\t\t")
         answer = input("Answer -> \t\t\t\t\t")
+        if question == "#":
+            break
         card = Flashcard(question,answer)
         global deck
         deck.append(card)
