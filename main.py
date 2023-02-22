@@ -98,7 +98,15 @@ def load_deck():
 
 def remove_deck():
     name = input("What is the name of the Deck you want to remove: ")
-    os.remove(name+".txt")
+    path = "'./" + name + '.txt'
+    checkfile = os.path.exists(path)
+    if checkfile == True:
+        os.remove(name+".txt")
+        print("The deck" + name + " has successfully be removed")
+    else:
+        print("There is no saved deck called " + name)
+        meanu()
+
 
 name =""
 num = 0
