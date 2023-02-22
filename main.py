@@ -14,6 +14,13 @@ class Flashcard:
     def get_answer(self):
         print (self.answer)
 
+# Global Variable
+name =""
+num = 0
+deck = []
+wrong = []
+right = []
+
 def main():
     userinput = input("""Flash Cards, the best way to study
 
@@ -73,8 +80,7 @@ def load_deck():
     checkfile = os.path.exists(path)
     if checkfile == True:
         with open(name + ".txt", 'r') as file:
-            for line in file:
-                print[line]
+            for line in file:999999
                 if line == "Start Questions in deck:_>!%^@":
                     flag = 1
                 elif line == "Start Questions in right:_>!%^@":
@@ -106,13 +112,6 @@ def remove_deck():
     else:
         print("There is no saved deck called " + name)
         meanu()
-
-
-name =""
-num = 0
-deck = []
-wrong = []
-right = []
 def new_deck_name():
     global name
     name = input("Name of deck: \t\t\t\t")
@@ -132,14 +131,14 @@ def new_deck():
 def add_card_to_deck():
     print("Type # in the question input to stop adding cards\n")
     while True :
-        question = input("Question -> \t\t\t\t")
-        answer = input("Answer -> \t\t\t\t\t")
+        question = input("Question -> \t\t\t\t\t")
         if question == "#":
             break
+        answer = input("Answer -> \t\t\t\t\t")
         card = Flashcard(question,answer)
         global deck
         deck.append(card)
-        print("Successfully added to deck")
+        print("\nSuccessfully added to deck\n")
     meanu()
 
 
@@ -300,7 +299,6 @@ def remove_card():
             meanu()
 
 def save_deck():
-    print ("it does run this method")
     with open(name+".txt",'w') as file:
         file.write("Start Questions in deck:_>!%^@\n")
         for i in deck:
