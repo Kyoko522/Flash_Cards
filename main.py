@@ -80,7 +80,8 @@ def load_deck():
     checkfile = os.path.exists(path)
     if checkfile == True:
         with open(name + ".txt", 'r') as file:
-            for line in file:999999
+            for line in file:
+                print[line]
                 if line == "Start Questions in deck:_>!%^@":
                     flag = 1
                 elif line == "Start Questions in right:_>!%^@":
@@ -98,6 +99,7 @@ def load_deck():
     else:
         print("There is no deck called that please first make a deck called that name")
         main()
+
 
 
 
@@ -315,7 +317,7 @@ def save_deck():
             file.write(str(n) + '\n')
         file.write("End Questions in wrong:_>!%^@\n")
 
-    print("The deck has be successfully saved")
+    print("\nThe deck has be successfully saved\n")
     time.sleep(3)
     meanu()
 
