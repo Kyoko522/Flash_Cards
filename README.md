@@ -1,13 +1,17 @@
-Flashcard Program README
+Flashcard Program README:
+
 This is a Python program that lets you create, load and quiz on flashcards. You can add flashcards to the deck, remove cards from it, save and load decks, and quiz yourself on the flashcards.
 
-Requirements
+Requirements:
+
 This program requires the following:
 
 Python 3.x
 os.path module
 time module
-How to Use
+
+How to Use:
+
 Run the program from the command line using python flashcard_program.py.
 
 The program will prompt you to either create a new deck or load an existing one.
